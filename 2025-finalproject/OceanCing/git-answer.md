@@ -13,7 +13,7 @@ git reset HEAD --hard
 - HEAD：HEAD指针指向的最新提交版本，即未修改的版本
 - --hard：撤销暂存区的add并清空工作区的修改，符合要求
 
-![answer01](/git_2025/2025-finalproject/OceanCing/images/question01.png)
+![answer01](/2025-finalproject/OceanCing/images/question01.png)
 
 如图：
 
@@ -31,7 +31,7 @@ git restore .				# 这一步将最新的一次提交覆盖到当前的状态
 
 如图：
 
-![answer02](/git_2025/2025-finalproject/OceanCing/images/question2.png)
+![answer02](/2025-finalproject/OceanCing/images/question2.png)
 
 - 对temp.txt修改后，添加后查看状态和日志
 - 第一步先撤销添加到暂存区
@@ -59,7 +59,7 @@ git revert <hash>
 - 也可以使用上次历史的哈希值
 - 原理是创建一个新的commit作为要回退的那次提交抵消上一次提交，会保留这次提交的commit历史，但是也可以实现回退
 
-![](/git_2025/2025-finalproject/OceanCing/images/question2.1.1.png)
+![](/2025-finalproject/OceanCing/images/question2.1.1.png)
 
 如图：
 
@@ -75,7 +75,7 @@ git checkout 目标hash -b newbr
 
 如图：
 
-![](/git_2025/2025-finalproject/OceanCing/images/question2.1.2.png)
+![](/2025-finalproject/OceanCing/images/question2.1.2.png)
 
 - 虽然创建了新分支，但是满足了在目标提交下继续进行开发和不改变原有历史的要求
 - git log查看，最新提交成功回退到了“temp commit 01”
@@ -91,7 +91,7 @@ git reset --hard newbr
 
 - 可以实现回退到目标版本或者在回退到目标版本继续进行开发后再强制reset实现历史上的从目标版本开始继续开发
 
-![](/git_2025/2025-finalproject/OceanCing/images/question2.2.1.png)
+![](/2025-finalproject/OceanCing/images/question2.2.1.png)
 
 如图：
 
@@ -105,7 +105,7 @@ git reset --hard <hash>
 
 - 直接强制回退到上一次提交状态，删除暂存区和工作区修改
 
-![](/git_2025/2025-finalproject/OceanCing/images/question2.2.2.png)
+![](/2025-finalproject/OceanCing/images/question2.2.2.png)
 
 如图：
 
@@ -132,9 +132,9 @@ git rebase -i HEAD~3
 
 - 需要使用命令`drop`删除想要撤销的提交的哈希值
 
-![](/git_2025/2025-finalproject/OceanCing/images/question2.2.3.1.png)
+![](/2025-finalproject/OceanCing/images/question2.2.3.1.png)
 
-![](/git_2025/2025-finalproject/OceanCing/images/question2.2.3.2.png)
+![](/2025-finalproject/OceanCing/images/question2.2.3.2.png)
 
 如图：
 
@@ -153,7 +153,7 @@ git rebase
 
 - 变基式合并，将一个分支合并到另一个分支的HEAD上
 
-![](/git_2025/2025-finalproject/OceanCing/images/question2.3.1.png)
+![](/2025-finalproject/OceanCing/images/question2.3.1.png)
 
 如图：
 
@@ -183,7 +183,7 @@ git rebase
 
 可以选择将br的哪一次提交合并到main上，类似更加自由的`git merge`
 
-![](/git_2025/2025-finalproject/OceanCing/images/question2.3.2.png)
+![](/2025-finalproject/OceanCing/images/question2.3.2.png)
 
 - （我先把我的newbr回退了一下再进行的演示）
 - 我在newbr上创建了三次提交，但是我的目标是只选择第二次的提交进行合并
