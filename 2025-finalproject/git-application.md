@@ -178,6 +178,80 @@ git push --force-with-lease origin HEAD:branch-name
 
 > （此处插入你操作 `git revert` / `git reset` / `git rebase` 的截图）
 
+## 附：实操日志（已保存）与关键命令
+
+我已将本次 demo 的命令与终端输出保存为文本日志：`2025-finalproject/logs/demo-output.log`。
+
+你可以下载或在本地打开该文件查看完整的命令输出与分支图。日志中包含：
+- 当前分支列表与远端引用
+- `git log --graph --decorate --oneline --all` 的可视化历史
+- 针对演示分支（`demo-base`、`reset-soft`、`reset-mixed`、`reset-hard`、`rebase-demo`、`PR-Test`）的 `git status` 与最近提交记录
+
+关键命令（可直接复制到终端按步骤复现）：
+
+1. 准备演示基线（创建 3 个提交）
+```bash
+git switch -c demo-base
+printf 'A\n' > demo.txt
+git add demo.txt
+git commit -m "feat: add demo A"
+
+printf 'B\n' >> demo.txt
+git add demo.txt
+git commit -m "feat: add demo B"
+
+printf 'C\n' >> demo.txt
+git add demo.txt
+git commit -m "feat: add demo C"
+```
+
+2. `git reset` 三种模式对比
+```bash
+# soft: 回退提交，变更保留并已暂存
+git branch reset-soft demo-base
+git switch reset-soft
+git reset --soft HEAD~1
+
+# mixed (默认): 回退提交，变更保留但为未暂存
+git branch reset-mixed demo-base
+git switch reset-mixed
+git reset --mixed HEAD~1
+
+# hard: 回退并丢弃变更（谨慎）
+git branch reset-hard demo-base
+git switch reset-hard
+git reset --hard HEAD~1
+```
+
+3. `git rebase -i --autosquash` 示例（把 fixup 合并到目标 commit）
+```bash
+git switch demo-base
+git switch -c rebase-demo
+printf 'fixup-A\n' >> demo.txt
+git add demo.txt
+git commit -m "fixup! feat: add demo A"
+
+# 重要：rebase 的范围必须包含被修正的提交（示例用 HEAD~4）
+GIT_SEQUENCE_EDITOR=: GIT_EDITOR=: git rebase -i --autosquash HEAD~4
+
+# 若出现冲突，按如下处理：
+# 编辑冲突文件并保存
+git add <conflicted-files>
+git rebase --continue
+# 或放弃：
+git rebase --abort
+```
+
+4. 如果你在 detached HEAD（头指针分离）状态下产生了提交，建议先把提交保存在分支上：
+```bash
+git switch -c my-temp-branch
+# 然后 push 或继续操作
+```
+
+日志文件路径： `2025-finalproject/logs/demo-output.log`
+
+如需我把该日志截图（图片形式）或把日志内容以更漂亮的 HTML/Markdown 报告保存，请告诉我，我可以生成并提交相应文件。
+
 ---
 
 ## 3. 合并分支的方式（至少两种）
