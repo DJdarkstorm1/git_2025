@@ -14,7 +14,7 @@
 ##### 将暂存区的修改移回工作区
 `git reset HEAD
 
-##### 然后使用 checkout 回退工作区修改.
+##### 然后使用 checkout 回退工作区修改
 `git checkout 
 
 
