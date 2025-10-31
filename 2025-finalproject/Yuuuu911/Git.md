@@ -16,3 +16,6 @@
 - #### git rebase
 ![alt text](<image/Pasted image 20251031155110.png>)
 ![alt text](<image/Pasted image 20251031160024.png>)
+- #### git cherry-pick
+![alt text](<Snipaste_2025-10-31_17-48-36.png>)
+![alt text](<Snipaste_2025-10-31_17-48-59.png>)
