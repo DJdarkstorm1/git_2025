@@ -1,4 +1,4 @@
-#### 常用命令
+### 常用命令
 - git status
 - git add . 提交所有文件
 - git add test.txt只提交特定文件
