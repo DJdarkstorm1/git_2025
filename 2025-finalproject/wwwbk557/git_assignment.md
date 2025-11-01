@@ -88,7 +88,7 @@ git commit -m "Revert to <目标哈希> by reset + recommit"
 
   ![图](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/2-2-3.png)
 
-  - 工作区的也会被退到相应版本（最后一行少一个-1）
+  工作区的也会被退到相应版本（最后一行少一个-1）
 
   ![图](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/2-2-4.png)
 
@@ -114,22 +114,35 @@ git commit -m "Revert to <目标哈希> by reset + recommit"
 
    ```bash
    git checkout feature
-      git rebase master        # 把 feature 的补丁依次重放到 master 顶端
-      # 快进 master
-      git checkout master
-      git merge feature        # 必然 fast-forward，无合并节点
+   git rebase master        
+   git checkout master
+   git merge feature        
    ```
-
    
-
+   ![tu](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/3-1.png)
+   
 2. 拣选式合并 —— `git cherry-pick`
 
    只摘取指定的一个或多个提交应用到当前分支，其余提交不管
 
    ```bash
    git checkout master
-      git cherry-pick 3a2f1d8 7b9c4e2   # 把两条补丁依次搬过来
+   git cherry-pick 3a2f1d8 7b9c4e2   # 把两条补丁依次搬过来
    ```
 
+   先创建一个新分支再提交点东西
    
+   ![图](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/3-2.png)
+   
+   查看提交历史，获取提交的哈希值
+   
+   ![图](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/3-3.png)
+   
+   使用cherry-pick选择性地合并某个提交
+   
+   ![图](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/3-4.png)
+
+
+
+
 
