@@ -14,7 +14,7 @@ git reset
 | --hard  | no     | no     |
 | --mixed | yes    | no     |
 
-![Screenshot from 2025-11-01 22-33-15](/2025-finalproject/zkz722/images/Screenshot from 2025-11-01 22-33-15.png)
+![1](/2025-finalproject/zkz722/images/1.png)
 
 - 方法二
 
@@ -28,7 +28,7 @@ git reset
 
   
 
-![Screenshot from 2025-11-01 22-42-17](/2025-finalproject/zkz722/images/Screenshot from 2025-11-01 22-42-17.png)
+![2](/2025-finalproject/zkz722/images/2.png)
 
 ---
 
@@ -47,7 +47,7 @@ git revert HEAD
 git revert HEAD~3..HEAD
 ```
 
-![Screenshot from 2025-11-01 23-03-36](/2025-finalproject/zkz722/images/Screenshot from 2025-11-01 23-03-36.png)
+![3](/2025-finalproject/zkz722/images/3.png)
 
 
 
@@ -62,7 +62,7 @@ git revert HEAD~3..HEAD
 
   
 
-![Screenshot from 2025-11-01 23-10-59](/2025-finalproject/zkz722/images/Screenshot from 2025-11-01 23-10-59.png)
+![4](/2025-finalproject/zkz722/images/4.png)
 
 ---
 
@@ -80,7 +80,7 @@ git revert HEAD~3..HEAD
   git rebase main
   ```
 
-![Screenshot from 2025-11-01 23-51-43](/2025-finalproject/zkz722/images/Screenshot from 2025-11-01 23-51-43.png)
+  ![5](/2025-finalproject/zkz722/images/5.png)
 
 > **效果：** 创建线性的提交历史，没有合并提交。
 
@@ -97,6 +97,6 @@ git revert HEAD~3..HEAD
   git cherry-pick <start-commit>..<end-commit>
   ```
 
-  ![Screenshot from 2025-11-02 00-05-30](/2025-finalproject/zkz722/images/Screenshot from 2025-11-02 00-05-30.png)
+  ![6](/2025-finalproject/zkz722/images/6.png)
 
 
