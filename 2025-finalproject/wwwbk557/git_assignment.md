@@ -24,13 +24,15 @@
    git reset HEAD<文件名>
    ```
 
-   - 再通过以下代码恢复到上一次提交状态
+   ![图](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/微信图片_20251101104800_151_2.png)
 
+   - 再通过以下代码恢复到上一次提交状态
+   
    ```bash
    git checkout -- <文件名>
    ```
-
    
+   ![图](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/wechat_2025-11-01_104812_304.png)
 
 
 
