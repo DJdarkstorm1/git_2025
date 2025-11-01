@@ -8,9 +8,17 @@
    git reset --hard HEAD
    ```
 
-   
+   - 此处修改了一个文件加了“Make one revision”
 
-2. - 先通过以下代码取消暂存
+   ![图](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/微信图片_20251101095749_144_2.png)
+
+   - 如下我使用指令后回归上一次提交状态
+
+   ![图](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/微信图片_20251101095919_146_2.png)
+
+2. 先取消暂存再恢复
+
+   - 先通过以下代码取消暂存
 
    ```bash
    git reset HEAD<文件名>
@@ -105,5 +113,4 @@
    ```
 
    
-
 
