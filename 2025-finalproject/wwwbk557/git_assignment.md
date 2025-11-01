@@ -10,11 +10,11 @@
 
    - 此处修改了一个文件加了“Make one revision”
 
-   ![图](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/微信图片_20251101095749_144_2.png)
+   ![图](./picture/微信图片_20251101095749_144_2.png)
 
    - 如下我使用指令后回归上一次提交状态
 
-   ![图](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/微信图片_20251101095919_146_2.png)
+   ![图](./picture/微信图片_20251101095919_146_2.png)
 
 2. 先取消暂存再恢复
 
@@ -24,7 +24,7 @@
    git reset HEAD<文件名>
    ```
 
-   ![图](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/微信图片_20251101104800_151_2.png)
+   ![图](./picture/微信图片_20251101104800_151_2.png)
 
    - 再通过以下代码恢复到上一次提交状态
    
@@ -32,7 +32,7 @@
    git checkout -- <文件名>
    ```
    
-   ![图](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/wechat_2025-11-01_104812_304.png)
+   ![图](./picture/wechat_2025-11-01_104812_304.png)
 
 
 
@@ -48,16 +48,16 @@
   ```
   
 
-![tu](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/2-1-1.png)
+![图](./picture/2-1-1.png)
 
-![tu](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/2-1_1.png)
+![图](./picture/2-1_1.png)
 
 ```bash
 # 重新提交更改（生成新提交）
 git commit -m "Revert to <目标哈希> by reset + recommit"
 ```
 
-![tu](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/2-1-2.png)
+![图](./picture/2-1-2.png)
 
 - git revert  生成反向提交
 
@@ -69,9 +69,9 @@ git commit -m "Revert to <目标哈希> by reset + recommit"
   git revert -m 1 <合并提交的哈希>
   ```
 
-  ![图](/home/wbk/图片/wechat_2025-11-01_105937_523.png)
+  ![图](./picture/wechat_2025-11-01_105937_523.png)
 
-  ![图 ](/home/wbk/图片/wechat_2025-11-01_110632_633.png)
+  ![图 ](./picture/wechat_2025-11-01_110632_633.png)
 
   
 
@@ -84,13 +84,13 @@ git commit -m "Revert to <目标哈希> by reset + recommit"
   git reset --hard <回退目标哈希>
   ```
 
-  ![图](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/2-2-1.png)
+  ![图](./picture/2-2-1.png)
 
-  ![图](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/2-2-3.png)
+  ![图](./picture/2-2-3.png)
 
   工作区的也会被退到相应版本（最后一行少一个-1）
 
-  ![图](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/2-2-4.png)
+  ![图](./picture/2-2-4.png)
 
 - git rebase -i  交互式删除提交
 
@@ -102,9 +102,9 @@ git commit -m "Revert to <目标哈希> by reset + recommit"
   # 保存退出后，Git会重写历史
   ```
   
-  ![图](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/2-2-5.png)
+  ![图](./picture/2-2-5.png)
   
-  ![图](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/2-2-6.png)
+  ![图](./picture/2-2-6.png)
 
 **三、我们已经知道了合并分支可以使用merge，但这不是唯一的方法，给出至少两种不同的合并分支的方式：**
 
@@ -119,7 +119,7 @@ git commit -m "Revert to <目标哈希> by reset + recommit"
    git merge feature        
    ```
    
-   ![tu](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/3-1.png)
+   ![图](./picture/3-1.png)
    
 2. 拣选式合并 —— `git cherry-pick`
 
@@ -132,15 +132,15 @@ git commit -m "Revert to <目标哈希> by reset + recommit"
 
    先创建一个新分支再提交点东西
    
-   ![图](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/3-2.png)
+   ![图](./picture/3-2.png)
    
    查看提交历史，获取提交的哈希值
    
-   ![图](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/3-3.png)
+   ![图](./picture/3-3.png)
    
    使用cherry-pick选择性地合并某个提交
    
-   ![图](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/3-4.png)
+   ![图](./picture/3-4.png)
 
 
 
