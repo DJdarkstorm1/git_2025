@@ -84,7 +84,13 @@ git commit -m "Revert to <目标哈希> by reset + recommit"
   git reset --hard <回退目标哈希>
   ```
 
-  
+  ![图](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/2-2-1.png)
+
+  ![图](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/2-2-3.png)
+
+  - 工作区的也会被退到相应版本（最后一行少一个-1）
+
+  ![图](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/2-2-4.png)
 
 - git rebase -i  交互式删除提交
 
