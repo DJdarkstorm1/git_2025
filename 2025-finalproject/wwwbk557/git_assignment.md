@@ -45,13 +45,19 @@
   ```bash
   # 先回退到目标版本（保留工作区更改）
   git reset --soft <回退目标哈希>
-  
-  # 重新提交更改（生成新提交）
-  git commit -m "Revert to <目标哈希> by reset + recommit"
-  
   ```
-
   
+
+![tu](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/2-1-1.png)
+
+![tu](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/2-1_1.png)
+
+```bash
+# 重新提交更改（生成新提交）
+git commit -m "Revert to <目标哈希> by reset + recommit"
+```
+
+![tu](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/2-1-2.png)
 
 - git revert  生成反向提交
 
@@ -62,6 +68,10 @@
   # 若该提交是合并提交，需指定父分支（如 -m 1）
   git revert -m 1 <合并提交的哈希>
   ```
+
+  ![图](/home/wbk/图片/wechat_2025-11-01_105937_523.png)
+
+  ![图 ](/home/wbk/图片/wechat_2025-11-01_110632_633.png)
 
   
 
