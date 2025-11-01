@@ -100,10 +100,11 @@ git commit -m "Revert to <目标哈希> by reset + recommit"
   
   # 在编辑器中删除（drop）或注释掉要回退的提交行
   # 保存退出后，Git会重写历史
-  git push origin <分支名> --force
   ```
-
   
+  ![图](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/2-2-5.png)
+  
+  ![图](/home/wbk/git_2025/2025-finalproject/wwwbk557/picture/2-2-6.png)
 
 **三、我们已经知道了合并分支可以使用merge，但这不是唯一的方法，给出至少两种不同的合并分支的方式：**
 
