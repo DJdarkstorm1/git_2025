@@ -53,7 +53,7 @@
 
 ​		**如下图**
 
-<img src=".\image\7.png" alt="git rebase" />
+<img src="./image/rebase.png" alt="git rebase" />
 
 ## 	输入git rebase指令后修改 pick 为 drop
 
@@ -63,4 +63,4 @@
 
 # 使用merge和rebase指令合并
 
-<img src=".\image\9.png" alt="合并" />
+<img src="./image/hebing.png" alt="合并" />
