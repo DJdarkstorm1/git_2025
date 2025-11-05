@@ -1,0 +1,110 @@
+# Git 应用问题解答
+
+## 问题1：回退修改，恢复到最后一次提交状态
+
+当修改了部分文件且部分加入暂存区时，可通过以下方式回退：
+
+### 方式一：使用 `git reset --hard HEAD`
+该命令会**同时重置暂存区和工作区**到当前分支 `HEAD` 提交（即最后一次提交）的状态。执行后，所有未提交的修改（包括暂存区和工作区）会被强制丢弃，因此使用时需谨慎。
+
+命令示例：
+```bash
+git reset --hard HEAD
+```
+
+### 方式二：分步骤撤销暂存和工作区修改
+1. **撤销暂存区修改**：使用 `git reset HEAD <file>`（`<file>` 为文件名，可指定多个或用通配符），将暂存区文件回退到工作区。
+   命令示例（假设修改了 `app.py` 和 `utils.py`）：
+   ```bash
+   git reset HEAD app.py utils.py
+   ```
+2. **撤销工作区修改**：使用 `git checkout -- <file>`，将工作区文件恢复到最后一次提交的状态。
+   命令示例：
+   ```bash
+   git checkout -- app.py utils.py
+   ```
+
+
+## 问题2：回退已提交的新版本
+
+针对已提交的新版本，可通过以下方式回退，分为**不修改历史**和**修改历史**两类：
+
+### 一、不修改历史的方式
+
+#### 方式一：使用 `git revert <commit>`
+`git revert` 会创建**新的提交**来撤销指定 `<commit>` 的修改，不会改变历史提交记录，是多人协作场景下的安全回退方式。
+
+步骤：
+1. 执行 `git log` 查看要回退的提交哈希值。
+2. 执行 revert 命令：
+   ```bash
+   git revert <commit哈希值>
+   ```
+3. 若出现冲突，解决冲突后提交即可。
+
+#### 方式二：使用 `git checkout <commit> -- <file>`（单文件回退）
+若仅需回退单个文件到历史版本，可直接从指定提交中检出该文件，不影响历史记录。
+
+命令示例（将 `app.py` 回退到上一提交版本）：
+```bash
+git checkout HEAD^ -- app.py
+git commit -m "恢复 app.py 到上一版本"
+```
+
+
+### 二、修改历史的方式
+
+#### 方式一：使用 `git reset --hard <commit>`
+该命令会**移动分支 `HEAD` 指针**到指定 `<commit>`，并重置暂存区和工作区，从而删除指定提交后的所有记录，直接修改历史。
+
+示例（回退到前一个提交）：
+```bash
+git reset --hard HEAD^
+```
+
+#### 方式二：使用 `git rebase -i <commit>`（交互式变基）
+通过交互式变基可删除、合并提交记录，实现历史修改。
+
+步骤：
+1. 执行交互式变基（如回退到前两个提交）：
+   ```bash
+   git rebase -i HEAD~2
+   ```
+2. 在编辑界面中，将目标提交的操作改为 `drop`，保存退出后完成历史修改。
+
+
+## 问题3：合并分支的不同方式（除 `merge` 外）
+
+除 `git merge` 外，还有以下合并分支的方式：
+
+### 方式一：使用 `git rebase`（变基合并）
+`git rebase` 会将当前分支的提交“搬移”到目标分支的最新提交之后，使提交历史更线性。
+
+示例（将 `feature` 分支变基到 `main` 分支）：
+```bash
+git checkout feature
+git rebase main
+```
+若出现冲突，解决后执行 `git rebase --continue`，完成后可切换到 `main` 分支执行 `git merge feature`（快进合并，历史更整洁）。
+
+### 方式二：使用 `git cherry-pick`（挑选提交合并）
+`cherry-pick` 可将其他分支的**单个或多个提交**“挑选”到当前分支，实现部分提交的合并。
+
+示例（将 `feature` 分支的提交 `abc123` 合并到当前分支）：
+```bash
+git cherry-pick abc123
+```
+若有冲突，解决后执行 `git cherry-pick --continue`。
+
+### 方式三：使用 `git merge --squash`（压缩提交合并）
+该命令会将目标分支的多个提交**压缩为一个提交**后再合并到当前分支，避免提交历史过于零散。
+
+示例（将 `feature` 分支压缩合并到 `main` 分支）：
+```bash
+git checkout main
+git merge --squash feature
+git commit -m "合并 feature 分支的所有修改（压缩提交）"
+```
+
+
+以上内容可保存为 `Git应用问题解答.md`，若需补充命令执行的截图，可在对应命令处插入图片（如 `![git reset 示例](images/git-reset.png)`，确保图片文件与Markdown文件的相对路径正确）。
