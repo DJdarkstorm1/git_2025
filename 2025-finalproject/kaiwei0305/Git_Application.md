@@ -8,7 +8,7 @@
 该命令会**同时重置暂存区和工作区**到当前分支 `HEAD` 提交（即最后一次提交）的状态。执行后，所有未提交的修改（包括暂存区和工作区）会被强制丢弃，因此使用时需谨慎。
 
 例如:
-![git reset --hard HEAD命令使用过程](git reset --hard HEAD.png)
+![git reset --hard HEAD命令使用过程](./git revert <commit>.png)
 
 
 ### 方式二：分步骤撤销暂存和工作区修改
@@ -16,7 +16,7 @@
 
 2. **撤销工作区修改**：使用 `git checkout -- <file>`，将工作区文件恢复到最后一次提交的状态。
 例如：
-![git reset HEAD <file>命令使用过程](git reset HEAD <file>.png)
+![git reset HEAD <file>命令使用过程](./git reset HEAD <file>.png)
 
 
 ## 问题2：回退已提交的新版本
@@ -52,11 +52,8 @@
 HEAD 指针：会从当前提交移动到目标提交（即 “撤销” 了目标提交之后的所有提交记录）。暂存区（index）：保持不变（目标提交之后的所有暂存修改仍然保留在暂存区）。
  工作区（working directory）：保持不变（所有未提交的本地修改也会保留）。
 。
-
-示例（回退到前一个提交）：
-```bash
-git reset --hard HEAD^
-```
+例如：
+![git reset --soft <commit> 命令示例](./git reset --soft <commit>.png)
 
 #### 方式二：使用 `git rebase -i <commit>`（交互式变基）
 通过交互式变基可删除、合并提交记录，实现历史修改。
