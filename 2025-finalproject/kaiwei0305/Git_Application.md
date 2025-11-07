@@ -7,22 +7,16 @@
 ### 方式一：使用 `git reset --hard HEAD`
 该命令会**同时重置暂存区和工作区**到当前分支 `HEAD` 提交（即最后一次提交）的状态。执行后，所有未提交的修改（包括暂存区和工作区）会被强制丢弃，因此使用时需谨慎。
 
-命令示例：
-```bash
-git reset --hard HEAD
-```
+例如:
+![git reset --hard HEAD命令使用过程](git reset --hard HEAD.png)
+
 
 ### 方式二：分步骤撤销暂存和工作区修改
 1. **撤销暂存区修改**：使用 `git reset HEAD <file>`（`<file>` 为文件名，可指定多个或用通配符），将暂存区文件回退到工作区。
-   命令示例（假设修改了 `app.py` 和 `utils.py`）：
-   ```bash
-   git reset HEAD app.py utils.py
-   ```
+
 2. **撤销工作区修改**：使用 `git checkout -- <file>`，将工作区文件恢复到最后一次提交的状态。
-   命令示例：
-   ```bash
-   git checkout -- app.py utils.py
-   ```
+例如：
+![git reset HEAD <file>命令使用过程](git reset HEAD <file>.png)
 
 
 ## 问题2：回退已提交的新版本
@@ -41,21 +35,23 @@ git reset --hard HEAD
    git revert <commit哈希值>
    ```
 3. 若出现冲突，解决冲突后提交即可。
+例如：
+![git revert <commit>命令使用过程](git revert <commit>.png)
 
 #### 方式二：使用 `git checkout <commit> -- <file>`（单文件回退）
 若仅需回退单个文件到历史版本，可直接从指定提交中检出该文件，不影响历史记录。
 
-命令示例（将 `app.py` 回退到上一提交版本）：
-```bash
-git checkout HEAD^ -- app.py
-git commit -m "恢复 app.py 到上一版本"
-```
+例如:
+![git revert <commit>命令使用过程](git revert <commit>.png)
 
 
 ### 二、修改历史的方式
 
-#### 方式一：使用 `git reset --hard <commit>`
-该命令会**移动分支 `HEAD` 指针**到指定 `<commit>`，并重置暂存区和工作区，从而删除指定提交后的所有记录，直接修改历史。
+#### 方式一：使用 `git reset --soft <commit>'
+
+HEAD 指针：会从当前提交移动到目标提交（即 “撤销” 了目标提交之后的所有提交记录）。暂存区（index）：保持不变（目标提交之后的所有暂存修改仍然保留在暂存区）。
+ 工作区（working directory）：保持不变（所有未提交的本地修改也会保留）。
+。
 
 示例（回退到前一个提交）：
 ```bash
@@ -108,3 +104,4 @@ git commit -m "合并 feature 分支的所有修改（压缩提交）"
 
 
 以上内容可保存为 `Git应用问题解答.md`，若需补充命令执行的截图，可在对应命令处插入图片（如 `![git reset 示例](images/git-reset.png)`，确保图片文件与Markdown文件的相对路径正确）。
+
