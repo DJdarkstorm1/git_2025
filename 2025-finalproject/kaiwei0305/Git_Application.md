@@ -7,7 +7,7 @@
 ### 方式一：使用 `git reset --hard HEAD`
 该命令会**同时重置暂存区和工作区**到当前分支 `HEAD` 提交（即最后一次提交）的状态。执行后，所有未提交的修改（包括暂存区和工作区）会被强制丢弃，因此使用时需谨慎。
 
-例如:
+#####例如:
 ![图片说明](./1.1.png)
 
 
@@ -15,7 +15,7 @@
 1. **撤销暂存区修改**：使用 `git reset HEAD <file>`（`<file>` 为文件名，可指定多个或用通配符），将暂存区文件回退到工作区。
 
 2. **撤销工作区修改**：使用 `git checkout -- <file>`，将工作区文件恢复到最后一次提交的状态。
-例如：
+#####例如:
 ![图片说明](./1.2.png)
 
 
@@ -35,15 +35,14 @@
    git revert <commit哈希值>
    ```
 3. 若出现冲突，解决冲突后提交即可。
-例如：
-![git revert <commit>命令使用过程](/home/kaiwei/git_2025/2025-finalproject/kaiwei0305/git revert <commit>.png)
+#####例如:
+![图片说明](./2.1.png)
 
 #### 方式二：使用 `git checkout <commit> -- <file>`（单文件回退）
 若仅需回退单个文件到历史版本，可直接从指定提交中检出该文件，不影响历史记录。
 
-例如:
-![git revert <commit>命令使用过程](git revert <commit>.png)
-
+#####例如:
+![图片说明](./2.2.png)
 
 ### 二、修改历史的方式
 
@@ -52,8 +51,8 @@
 HEAD 指针：会从当前提交移动到目标提交（即 “撤销” 了目标提交之后的所有提交记录）。暂存区（index）：保持不变（目标提交之后的所有暂存修改仍然保留在暂存区）。
  工作区（working directory）：保持不变（所有未提交的本地修改也会保留）。
 。
-例如：
-![git reset --soft <commit> 命令示例](./git reset --soft <commit>.png)
+#####例如:
+![图片说明](./2.3.png)
 
 #### 方式二：使用 `git rebase -i <commit>`（交互式变基）
 通过交互式变基可删除、合并提交记录，实现历史修改。
@@ -65,6 +64,8 @@ HEAD 指针：会从当前提交移动到目标提交（即 “撤销” 了目�
    ```
 2. 在编辑界面中，将目标提交的操作改为 `drop`，保存退出后完成历史修改。
 
+#####例如:
+![图片说明](./2.4.png)
 
 ## 问题3：合并分支的不同方式（除 `merge` 外）
 
@@ -73,32 +74,23 @@ HEAD 指针：会从当前提交移动到目标提交（即 “撤销” 了目�
 ### 方式一：使用 `git rebase`（变基合并）
 `git rebase` 会将当前分支的提交“搬移”到目标分支的最新提交之后，使提交历史更线性。
 
-示例（将 `feature` 分支变基到 `main` 分支）：
-```bash
-git checkout feature
-git rebase main
-```
+#####例如:
+![图片说明](./3.1.png)
+
 若出现冲突，解决后执行 `git rebase --continue`，完成后可切换到 `main` 分支执行 `git merge feature`（快进合并，历史更整洁）。
 
 ### 方式二：使用 `git cherry-pick`（挑选提交合并）
 `cherry-pick` 可将其他分支的**单个或多个提交**“挑选”到当前分支，实现部分提交的合并。
 
-示例（将 `feature` 分支的提交 `abc123` 合并到当前分支）：
-```bash
-git cherry-pick abc123
-```
+#####例如:
+![图片说明](./3.2.png)
+
 若有冲突，解决后执行 `git cherry-pick --continue`。
 
 ### 方式三：使用 `git merge --squash`（压缩提交合并）
 该命令会将目标分支的多个提交**压缩为一个提交**后再合并到当前分支，避免提交历史过于零散。
 
-示例（将 `feature` 分支压缩合并到 `main` 分支）：
-```bash
-git checkout main
-git merge --squash feature
-git commit -m "合并 feature 分支的所有修改（压缩提交）"
-```
+#####例如:
+![图片说明](./3.3.png)
 
-
-以上内容可保存为 `Git应用问题解答.md`，若需补充命令执行的截图，可在对应命令处插入图片（如 `![git reset 示例](images/git-reset.png)`，确保图片文件与Markdown文件的相对路径正确）。
 
