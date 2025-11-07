@@ -36,7 +36,7 @@
    ```
 3. 若出现冲突，解决冲突后提交即可。
 例如：
-![git revert <commit>命令使用过程](git revert <commit>.png)
+![git revert <commit>命令使用过程](/home/kaiwei/git_2025/2025-finalproject/kaiwei0305/git revert <commit>.png)
 
 #### 方式二：使用 `git checkout <commit> -- <file>`（单文件回退）
 若仅需回退单个文件到历史版本，可直接从指定提交中检出该文件，不影响历史记录。
