@@ -17,31 +17,31 @@
 - 获取密钥，配置SSH
 
 ### b. 常用命令
-git init        # 初始化仓库
-git add         # 添加文件到暂存区
-git commit -m   # 将暂存区的内容同步到个人仓库
-git status      # 查看个人仓库的提交状况
-git diff        # 对比暂存区和个人仓库文件版本差异
-git log         # 查看Git日志，查找版本HEAD
-git rm          # 删除工作区和暂存区的文件
-git reset       # 后跟HEAD，回退到指定版本（--soft/--hard）
-git checkout -b # 切换分支
-git branch      # 查看当前版本所有分支以及当前所在分支
-git remote -v   # 列出当前仓库中已配置的远程仓库，并显示它们的URL
-git pull        # 拉取远程仓库代码合并
-git push        # 上传远程代码并合并
+#### git init        # 初始化仓库
+#### git add         # 添加文件到暂存区
+#### git commit -m   # 将暂存区的内容同步到个人仓库
+#### git status      # 查看个人仓库的提交状况
+#### git diff        # 对比暂存区和个人仓库文件版本差异
+#### git log         # 查看Git日志，查找版本HEAD
+#### git rm          # 删除工作区和暂存区的文件
+#### git reset       # 后跟HEAD，回退到指定版本（--soft/--hard）
+#### git checkout -b # 切换分支
+#### git branch      # 查看当前版本所有分支以及当前所在分支
+#### git remote -v   # 列出当前仓库中已配置的远程仓库，并显示它们的URL
+#### git pull        # 拉取远程仓库代码合并
+#### git push        # 上传远程代码并合并
 
 ## 4.关于PR
 
 ### a. 前期准备
 
-# （1） Fork 原仓库到自己的账户
-# （2） Clone 自己 Fork 的仓库SHH
-# （3） 创建特性分支
+- （1） Fork 原仓库到自己的账户
+- （2） Clone 自己 Fork 的仓库SHH
+- （3） 创建特性分支
 
 ### b.开发与提交
-git add/commmit -m上传修改
-git push推送到远程
+- git add/commmit -m上传修改
+- git push推送到远程
 
 
 未完待续……
