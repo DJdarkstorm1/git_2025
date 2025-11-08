@@ -22,7 +22,7 @@
   git restore <file>
   ```
 
-![git-restore 示例](IMAGES/git-restore-1-1)
+![git-restore 示例](IMAGES/git-restore-1-1.jpg)
 
 ### 方法二：使用 `git checkout`（旧版命令，兼容性好）
 
@@ -36,7 +36,7 @@
   git checkout -- <file>
   ```
 
-![git-checkout 示例](IMAGES/git-checkout--1-2)
+![git-checkout 示例](IMAGES/git-checkout--1-2.jpg)
 
 ---
 
@@ -170,13 +170,13 @@ git push --force-with-lease origin HEAD:branch-name
 - 错误仅在你本地，且你确认要彻底删掉：`git reset --hard <good>` + `git push --force-with-lease`。
 - 需要清理多个提交或合并提交：`git rebase -i`，然后强制推送（仅当你能协调好协作影响时）。
 
-![git-revert 示例](IMAGES/git-revert)
-![](IMAGES/git-revert2)
-![](IMAGES/git-revert3)
+![git-revert 示例](IMAGES/git-revert.jpg)
+![](IMAGES/git-revert2.jpg)
+![](IMAGES/git-revert3.jpg)
 
 > 操作 `git revert` 的截图
 
-![git rebase 示例](IMAGES/git-rebase1)
+![git rebase 示例](IMAGES/git-rebase1.jpg)
 > 操作 `git rebase` 的截图
 
 关键命令（可直接复制到终端按步骤复现）：
@@ -255,7 +255,7 @@ git switch -c my-temp-branch
   git merge <branch>
   ```
 
-![git-merge 示例](IMAGES/git-merge1)
+![git-merge 示例](IMAGES/git-merge1.jpg)
 
 > 操作 `git merge` 的截图
 
@@ -266,7 +266,7 @@ git switch -c my-temp-branch
   git rebase <branch>
   ```
 
-![git-rebase 示例](![](IMAGES/git-rebase2)
+![git-rebase 示例](![](IMAGES/git-rebase2.jpg)
 > 操作 `git rebase` 的截图
 
 ### 方法三：使用 `git cherry-pick`
@@ -276,8 +276,8 @@ git switch -c my-temp-branch
   git cherry-pick <commit_id>
   ```
 
-![git-cherry-pick 示例](IMAGES/cherry-pick-3-1)
-![](IMAGES/cherry-pick-3-2)
+![git-cherry-pick 示例](IMAGES/cherry-pick-3-1.jpg)
+![](IMAGES/cherry-pcik-3-2.jpg)
 > 操作 `git cherry-pick` 的截图
 
 ---
