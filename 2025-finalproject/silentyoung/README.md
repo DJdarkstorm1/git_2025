@@ -20,14 +20,15 @@
 -git init 初始化仓库
 -git add 添加文件到暂存区
 -git commmit -m 将暂存区的内容同步到个人仓库
--git status
--git diff
--git log
--git rm
--git reset
--git checkout (-b)
--git branch
--git remot
--git push
+-git status 查看个人仓库的提交状况
+-git diff 对比暂存区和个人仓库文件版本差异
+-git log 查看git日志，查找版本HEAD
+-git rm 删除工作区和暂存区的文件 *如果是 rm ... 就只删除工作区的文件* 
+-git reset 后跟HEAD，回退到指定版本（--soft/--hard）
+-git checkout (-b) 切换分支
+-git branch 查看当前版本所有分支以及当前所在分支
+-git remote (-v) 列出当前仓库中已配置的远程仓库，并显示它们的 URL
+-git pull 拉取远程仓库代码合并
+-git push 上传远程代码并合并
 
 ……未完待续
